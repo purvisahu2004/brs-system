@@ -3,106 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book_recommendation_system</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-    <script src="https://cdn.tailwindcss.com">
-    </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  
+    <title>Book Recommendation System</title>
+    <!-- Use either Bootstrap OR Tailwind (avoid both) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
-    <body class="bg-blue-100">
-     <nav class="bg-black text-white p-4 flex justify-between items-center">
-      <div class="text-lg font-bold">
-       My_Books_recommender
-      </div>
-      <div class="space-x-4">
-       <a class="hover:underline" href="/">
-        Home
-       </a>
-       <a class="hover:underline" href="#">
-        Upload Book
-       </a>
-       <a class="hover:underline" href="#">
-        Delete Book
-       </a>
-       <a class="hover:underline" href="#">
-        Contact Us
-       </a>
-       <a class="hover:underline" href="/recommend">
-        Recommender
-       </a>
-      </div>
-      <div class="space-x-4">
-       <a class="hover:underline" href="#">
-        Account
-       </a>
-       <a class="hover:underline" href="#">
-        Logout
-       </a>
-      </div>
-     </nav>
-     <div class="relative">
-      <img alt="Library with bookshelves and a quote overlay" class="w-full h-96 object-cover" height="400" src="https://th.bing.com/th/id/OIP.Y0PtPQSSMp5eT_5JZZAXNAHaEK?w=1920&h=1080&rs=1&pid=ImgDetMain" width="1200"/>
-      <div class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white text-center">
-       <h1 class="text-4xl font-bold">
-        Today a reader,
-        <br/>
-        tomorrow a leader.
-       </h1>
-       <p class="mt-2 text-lg">
-        Margaret Fuller
-       </p>
-      </div>
-      <div class="absolute inset-y-0 left-0 flex items-center">
-       <button class="text-white text-2xl px-4">
-        ❮
-       </button>
-      </div>
-      <div class="absolute inset-y-0 right-0 flex items-center">
-       <button class="text-white text-2xl px-4">
-        ❯
-       </button>
-      </div>
-     </div>
-     <div class="text-center py-8">
-      <h2 class="text-2xl font-bold">
-       DISCOVER BOOKS THAT YOU WILL LOVE📖🤎
-      </h2>
-     </div>
-      
-     <div class="container">
-        <div class="row">
-         <div class="col-md-12">
-            <h1 style="text-align:center;font-size:50px"><b>📑Recommend Books📙<b></h1>
-            <p class="para" style="margin-top:100px"> Enter a book you like and the site will analyze our huge database of real readers' favorite books to provide book recommendations and suggestions for what to read next</p>
-         </div>
-         </div>
-        <form action="/recommend_books" methods="post" style="flex; justify-content:center align-items:center;">
-          <input name="user_input" type="text" class="form-control" placeholder="Enter book_name" style="height:65px; weight:260px; margin-top:10px; border:black solid 2px"><br>
-          <input type="submit" class="btn btn-lg btn-success">
-         </form>
-        {% if data %}
+<body class="bg-blue-100">
+    <!-- Navbar -->
+    <nav class="bg-black text-white p-4 flex justify-between items-center">
+        <div class="text-lg font-bold">My_Books_recommender</div>
+        <div class="space-x-4">
+            <a class="hover:underline" href="/">Home</a>
+            <a class="hover:underline" href="#">Upload Book</a>
+            <a class="hover:underline" href="#">Delete Book</a>
+            <a class="hover:underline" href="#">Contact Us</a>
+            <a class="hover:underline" href="/recommend">Recommender</a>
+        </div>
+        <div class="space-x-4">
+            <a class="hover:underline" href="#">Account</a>
+            <a class="hover:underline" href="#">Logout</a>
+        </div>
+    </nav>
 
-         {% for i in data %}
-       <div class="col-md-3" style="margin-top:50px">
-           <div class="card">
-               <div class="card-body">
-                   <img class="card-img-top" src="{{i[2]}}">
-                   <p class="text-white">{{i[0]}}</p>
-                   <h4 class="text-white">{{i[1]}}</h4>
-               </div>
-           </div>
-       </div>
-    </div>
-    {% endfor %}
-
-   {% endif %}
-
-            
+    <!-- Hero Section -->
+    <div class="relative">
+        <img class="w-full h-96 object-cover" src="https://th.bing.com/th/id/OIP.Y0PtPQSSMp5eT_5JZZAXNAHaEK?w=1920&h=1080&rs=1&pid=ImgDetMain">
+        <div class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50 text-white text-center">
+            <h1 class="text-4xl font-bold">Today a reader,<br>tomorrow a leader.</h1>
+            <p class="mt-2 text-lg">Margaret Fuller</p>
         </div>
     </div>
 
-  
-  </div> 
+    <!-- Book Recommender Section -->
+    <div class="text-center py-8">
+        <h2 class="text-2xl font-bold">DISCOVER BOOKS THAT YOU WILL LOVE📖🤎</h2>
+    </div>
+
+    <div class="container mx-auto px-4">
+        <h1 class="text-center text-4xl font-bold my-8">📑 Recommend Books 📙</h1>
+        <p class="text-center my-8">Enter a book you like, and we'll recommend similar books!</p>
+        
+        <!-- Recommendation Form -->
+        <form action="/recommend_books" method="POST" class="flex flex-col items-center">
+            <input name="user_input" type="text" class="w-full max-w-md p-4 border-2 border-black rounded mb-4" placeholder="Enter book name">
+            <button type="submit" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600">Get Recommendations</button>
+        </form>
+
+        <!-- Recommended Books Grid -->
+        {% if data %}
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 my-12">
+                {% for book in data %}
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img class="w-full h-48 object-contain" src="{{ book[2] }}">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">{{ book[0] }}</h3>
+                            <p class="text-gray-600">{{ book[1] }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
 </body>
 </html>
